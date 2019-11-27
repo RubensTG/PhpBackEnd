@@ -68,8 +68,8 @@ class Pessoa extends Conexao {
         return $this;
     }
     
-    public function insert($obj){    
-    	$sql = "INSERT INTO pessoas(nome,idade,altura,peso,sexo) VALUES (:nome,:idade,:altura,:peso,:sexo)";
+    public function insert($obj){   /*Query*/    
+    $sql = "INSERT INTO pessoas(nome,idade,altura,peso,sexo) VALUES (:nome,:idade,:altura,:peso,:sexo)";
     	$consulta = Conexao::prepare($sql);
         $consulta->bindValue('nome',  $obj->nome);
         $consulta->bindValue('idade' , $obj->idade);
@@ -110,7 +110,7 @@ class Pessoa extends Conexao {
 		$sql = "SELECT * FROM pessoas";
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
-		return $consulta->fetchAll();
+		return $consulta->fetchAll();/*Todas as respostas*/
 	}
 }
 
